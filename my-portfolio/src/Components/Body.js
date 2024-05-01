@@ -10,7 +10,7 @@ export const Body = () => {
             {/* <div className='w-auto'> */}
                 <h2 className='text-2xl'>{bodyContent}</h2> <br />
             {/* </div> */}
-            <button className='bg-violet-600 hover:bg-violet-700 p-3 rounded-lg'>{getStarted}</button>
+            <button className='border-2 p-3 rounded-lg'>{getStarted}</button>
         </div>
     )
 }

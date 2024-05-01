@@ -5,3 +5,6 @@ export const bodyLineStart = 'Hi, I am'
 export const bodyContent = "I am a Full Stack Developer, currently pursuing my Masters in Computer Engineering at Stony Brook University, New York. I am a Full Stack Developer, currently pursuing my Masters in Computer Engineering at Stony Brook University I am a Full Stack Developer, currently pursuing my Masters in Computer Engineering at Stony Brook University"
 export const getStarted = "Get Started"
 export const footerContent = "Designed and Developed by"
+export const linkedInUrl = "https://www.linkedin.com/in/varun-harish1998"
+export const githubUrl = "https://github.com/VarunHarish98"
+export const resumeBtnContent = "My Resume"

@@ -9,11 +9,11 @@ import { Education } from './Education';
 
 export const Main = () => {
     return (
-        <div className='h-screen '>
+        <div className='h-full '>
             <Header />
-            <div className='flex mx-2 flex-1 border-solid border-amber-400'>
-                <Sidebar className='h-full'/>
-                <div className='border-solid borde4r-amber-400 flex flex-col flex-1'>
+            <div className='flex flex-1 border-solid border-amber-400'>
+                <Sidebar className='h-full' />
+                <div className='border-solid border-amber-400 flex flex-col flex-1 mx-5'>
                     <Body />
                     <Experience />
                     <Project />

@@ -1,14 +1,21 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBriefcase, faCode, faHouse, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { githubUrl, linkedInUrl } from '../utils/constants'
 
 export const Sidebar = () => {
-  return (
-    <div className='text-2xl flex justify-start my-9  py-4 space-y-4 flex-col '>
-        <FontAwesomeIcon color="#F97316" icon={faHouse} />
-        <FontAwesomeIcon color="#F97316" icon={faUserGraduate} />
-        <FontAwesomeIcon color="#F97316" icon={faCode} />
-        <FontAwesomeIcon color="#F97316" icon={faBriefcase} />
-    </div>
-  )
+    const handleIconClick = (icon) => {
+        const link = icon === 'Github' ? githubUrl : linkedInUrl
+        window.open(link, '_blank');
+    }
+    return (
+        <div className='text-2xl flex justify-end gap-4 my-9 mx-2 py-4 space-y-4 flex-col'>
+            <div onClick={() => handleIconClick("Github")} className='cursor-pointer'>
+                <FontAwesomeIcon icon={faGithub} />
+            </div>
+            <div onClick={() => handleIconClick("LinkedIn")} className='cursor-pointer'>
+                <FontAwesomeIcon icon={faLinkedin} />
+            </div>
+        </div>
+    )
 }
