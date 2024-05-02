@@ -1,7 +1,10 @@
 import React from 'react'
+import SectionTitle from './SectionTitle'
 
 export const Experience = () => {
   return (
-    <div className='border-4'>Experience Section Component</div>
+    <div className=''>
+      <SectionTitle title={"Experience"} />
+    </div>
   )
 }

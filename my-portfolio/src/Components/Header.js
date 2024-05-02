@@ -6,13 +6,13 @@ const Header = () => {
         window.open(resumeLink, '_blank');
     }
     return (
-        <header className='flex justify-between justify-center	items-center h-20'>
-            <div className='w-auto text-4xl text-white p-5 font-display'>
+        <header className='p-5 bg-primary flex justify-between'>
+            <div className='w-auto text-4xl sm:text-xl text-white sm:p-2 p-5 font-display'>
                 {headerName}
             </div>
-            <button onClick={handleButtonClick} className='bg-violet-600 hover:bg-violet-700 text-white mx-4 px-4 h-12 rounded-lg'>
+            {/* <button onClick={handleButtonClick} className='bg-violet-600 hover:bg-violet-700 text-white sm:mx-3 sm:px-2 sm:text:xl mx-4 px-4 h-12 rounded-lg'>
                 {resumeBtnContent}
-            </button>
+            </button> */}
         </header>
     )
 }

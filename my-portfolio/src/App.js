@@ -1,10 +1,16 @@
-import { Main } from "./Components/Main";
+// import { Main } from "./Components/Main";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/main";
+
 
 
 export default function App() {
   return (
-    <div className="bg-gray-800 text-white">
-      <Main />
-    </div>
+    <BrowserRouter >
+      <Routes >
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

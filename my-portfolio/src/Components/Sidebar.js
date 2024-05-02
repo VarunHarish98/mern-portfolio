@@ -9,7 +9,7 @@ export const Sidebar = () => {
         window.open(link, '_blank');
     }
     return (
-        <div className='text-2xl flex justify-end gap-4 my-9 mx-2 py-4 space-y-4 flex-col'>
+        <div className='text-2xl sm:p-0 sm:my-2 flex justify-end gap-4 my-9 mx-2 py-4 space-y-4 flex-col'>
             <div onClick={() => handleIconClick("Github")} className='cursor-pointer'>
                 <FontAwesomeIcon icon={faGithub} />
             </div>
