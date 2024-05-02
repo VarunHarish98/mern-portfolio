@@ -5,7 +5,7 @@ const SectionTitle = ({ title }) => {
     return (
         <div>
             <div className='flex gap-10 items-center'>
-                <div className='text-3xl text-white'>{title} </div>
+                <div className='text-3xl text-white sm:text-xl'>{title} </div>
                 <div className='w-60 h-[1px] px-10 bg-white'></div>
             </div>
 
