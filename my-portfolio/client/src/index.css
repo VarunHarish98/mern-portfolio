@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.v {
+  animation : v 1s infinite;
+}
+
+@keyframes v {
+  0% {
+    opacity:1
+  }
+  50% {
+    opacity:0.5
+  }
+  100% {
+    opacity:0.5
+  }
+}
+
+.h {
+  animation : h 1s infinite;
+}
+
+@keyframes h {
+  0% {
+    opacity:0.5
+  }
+  50% {
+    opacity:1
+  }
+  100% {
+    opacity:0.5
+  }
+}
+
+.l {
+  animation : l 1s infinite;
+}
+
+@keyframes l {
+  0% {
+    opacity:0.5
+  }
+  50% {
+    opacity:0.5
+  }
+  100% {
+    opacity:1
+  }
+}
