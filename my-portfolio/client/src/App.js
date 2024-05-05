@@ -1,39 +1,37 @@
-// import { Main } from "./Components/Main";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/main";
 import { useEffect } from "react";
 import Loader from "./Components/Loader";
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { SetPortfolioData } from "./redux/rootSlice";
+import { HideLoading, SetPortfolioData, ShowLoading } from "./redux/rootSlice";
+import Admin from "./pages/Admin";
 
 export default function App() {
-  // const [showLoading, setShowLoading] = useState(false)
-  const { loading } = useSelector(state => state.root)
+  const { loading, portfolioData } = useSelector(state => state.root)
   const dispatch = useDispatch()
   const getData = async () => {
     try {
+      dispatch(ShowLoading())
       const resp = await axios.get('/api/v1/portfolio/get-portfolio-data')
       dispatch(SetPortfolioData(resp?.data))
-      console.log(resp?.data)
+      dispatch(HideLoading())
     } catch (error) {
-      console.log(error)
+      dispatch(HideLoading())
     }
   }
 
   useEffect(() => {
-    getData()
-  })
+    if (!portfolioData)
+      getData()
+  }, [portfolioData])
 
-  // useEffect(() => {
-  //   console.log(portfolioData)
-  // }, [portfolioData])
   return (
     <BrowserRouter >
       {loading ? <Loader /> : null}
       <Routes >
         <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   )
