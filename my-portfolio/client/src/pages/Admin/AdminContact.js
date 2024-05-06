@@ -1,14 +1,31 @@
-import { Form } from 'antd'
 import React from 'react'
+import { Form, message } from 'antd'
 import AdminButton from './AdminButton'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { HideLoading, ShowLoading } from '../../redux/rootSlice'
+import axios from 'axios'
 
 const AdminContact = () => {
     const { portfolioData } = useSelector(store => store.root)
-
-    const onFinish = (values) => {
-        console.log(values)
+    const dispatch = useDispatch()
+    const onFinish = async (values) => {
+        try {
+            dispatch(ShowLoading())
+            const resp = await axios.post('/api/v1/portfolio/update-contact', {
+                ...values, _id: portfolioData.intros._id
+            })
+            if (resp.data.success)
+                message.success("Uploaded Successfully")
+            else
+                message.error("Failed to update data")
+            dispatch(HideLoading())
+        } catch (error) {
+            dispatch(HideLoading())
+            message.error("Failed to update data")
+            console.log(error)
+        }
     }
+
     return (
         <div>
             <Form layout="vertical" onFinish={onFinish} initialValues={portfolioData?.contact}>

@@ -1,13 +1,30 @@
 import React from 'react'
-import { Button, Form } from 'antd';
-import AdminButton from './AdminButton';
-import { useSelector } from 'react-redux';
+import { Form, message } from 'antd'
+import AdminButton from './AdminButton'
+import { useDispatch, useSelector } from 'react-redux'
+import { HideLoading, ShowLoading } from '../../redux/rootSlice'
+import axios from 'axios'
 
 const AdminIntroduction = () => {
     const { portfolioData } = useSelector(store => store.root)
+    const dispatch = useDispatch()
 
-    const onFinish = (values) => {
-        console.log(values)
+    const onFinish = async (values) => {
+        try {
+            dispatch(ShowLoading())
+            const resp = await axios.post('/api/v1/portfolio/update-intro', {
+                ...values, _id: portfolioData.intros._id
+            })
+            if (resp.data.success)
+                message.success("Uploaded Successfully")
+            else
+                message.error("Failed to update data")
+            dispatch(HideLoading())
+        } catch (error) {
+            dispatch(HideLoading())
+            message.error("Failed to update data")
+            console.log(error)
+        }
     }
     return (
         <div>
