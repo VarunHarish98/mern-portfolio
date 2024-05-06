@@ -12,5 +12,9 @@
             "dest": "/"
         }
     ],
-    "exclude": ["client"] 
+    "functions": {
+        "server.js": {
+            "exclude": "client"
+        }
+    }
 }
