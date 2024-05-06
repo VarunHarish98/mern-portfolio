@@ -1,36 +1,36 @@
 import { Form } from 'antd'
 import React from 'react'
 import AdminButton from './AdminButton'
+import { useSelector } from 'react-redux'
 
 const AdminContact = () => {
+    const { portfolioData } = useSelector(store => store.root)
+
+    const onFinish = (values) => {
+        console.log(values)
+    }
     return (
         <div>
-            <Form>
-                <Form.Item name="name">
-                    <label>Name</label>
+            <Form layout="vertical" onFinish={onFinish} initialValues={portfolioData?.contact}>
+                <Form.Item name="name" label="Name">
                     <input placeholder='Name' />
                 </Form.Item>
-                <Form.Item name="age">
-                    <label>Age</label>
+                <Form.Item name="age" label="Age">
                     <input placeholder='Age' />
                 </Form.Item>
-                <Form.Item name="gender">
-                    <label>Gender</label>
+                <Form.Item name="gender" label="Gender">
                     <input placeholder='Gender' />
                 </Form.Item>
-                <Form.Item name="email">
-                    <label>Email</label>
+                <Form.Item name="email" label="Email">
                     <input placeholder='Email' />
                 </Form.Item>
-                <Form.Item name="phone">
-                    <label>Phone</label>
+                <Form.Item name="phone" label="Phone">
                     <input placeholder='Phone' />
                 </Form.Item>
-                <Form.Item name="city">
-                    <label>City</label>
+                <Form.Item name="city" label="City">
                     <input placeholder='City' />
                 </Form.Item>
-                <AdminButton/>
+                <AdminButton />
             </Form>
         </div>
     )

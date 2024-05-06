@@ -8,12 +8,14 @@ import AdminProjects from './AdminProjects';
 import AdminEducation from './AdminEducation';
 import AdminContact from './AdminContact';
 import AdminOthers from './AdminOthers';
+import { useSelector } from 'react-redux';
 
 const Admin = () => {
+    const { portfolioData } = useSelector(state => state.root)
     return (
         <div>
             <Header />
-            <Tabs className='p-4'
+            {portfolioData && <Tabs className='p-4'
                 defaultActiveKey="1"
                 items={[
                     {
@@ -52,7 +54,7 @@ const Admin = () => {
                         children: <AdminOthers />
                     }
                 ]}
-            />
+            />}
         </div>
     )
 }
