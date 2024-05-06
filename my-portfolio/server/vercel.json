@@ -11,10 +11,5 @@
             "src": "/(.*)",
             "dest": "/"
         }
-    ],
-    "functions": {
-        "server.js": {
-            "exclude": "client"
-        }
-    }
+    ]
 }
