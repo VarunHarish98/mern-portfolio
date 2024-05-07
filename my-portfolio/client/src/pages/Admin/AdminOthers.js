@@ -4,6 +4,8 @@ import AdminButton from './AdminButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/rootSlice'
 import axios from 'axios'
+import { serverAPIURI } from '../../utils/constants'
+
 
 const AdminOthers = () => {
     const { portfolioData } = useSelector(store => store.root)
@@ -12,7 +14,7 @@ const AdminOthers = () => {
     const onFinish = async (values) => {
         try {
             dispatch(ShowLoading())
-            const resp = await axios.post('/api/v1/portfolio/update-others', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/update-others`, {
                 ...values, _id: portfolioData.others._id
             })
             if (resp.data.success)
