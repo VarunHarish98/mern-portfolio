@@ -4,6 +4,8 @@ import AdminButton from './AdminButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/rootSlice'
 import axios from 'axios'
+import { serverAPIURI } from '../../utils/constants'
+
 
 const AdminEducation = () => {
     const { portfolioData } = useSelector(store => store.root)
