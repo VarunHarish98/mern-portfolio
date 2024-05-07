@@ -84,3 +84,4 @@ export const details = {
     phone: "934-219-3905",
     city: "Stony Brook, New York"
 }
+export const serverAPIURI = 'https://mern-portfolio-server-1.onrender.com'
