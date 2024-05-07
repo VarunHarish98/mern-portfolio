@@ -14,7 +14,7 @@ const AdminExperience = () => {
         try {
             dispatch(ShowLoading())
             console.log(values)
-            const resp = await axios.post('/api/v1/portfolio/add-experience', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/add-experience`, {
                 values
             })
             if (resp.data.success)
