@@ -15,7 +15,7 @@ const AdminAbout = () => {
             const tempSkills = values?.skills?.split(',')
             values.skills = tempSkills
             console.log(tempSkills)
-            const resp = await axios.post('/api/v1/portfolio/update-about', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/update-about`, {
                 ...values, _id: portfolioData.about._id
             })
             if (resp.data.success)
