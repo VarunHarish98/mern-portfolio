@@ -14,7 +14,7 @@ const AdminEducation = () => {
         try {
             dispatch(ShowLoading())
             console.log(values)
-            const resp = await axios.post('/api/v1/portfolio/add-education', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/add-education`, {
                 values
             })
             if (resp.data.success)
