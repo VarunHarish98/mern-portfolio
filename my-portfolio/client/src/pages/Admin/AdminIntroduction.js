@@ -12,7 +12,7 @@ const AdminIntroduction = () => {
     const onFinish = async (values) => {
         try {
             dispatch(ShowLoading())
-            const resp = await axios.post('/api/v1/portfolio/update-intro', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/update-intro`, {
                 ...values, _id: portfolioData.intros._id
             })
             if (resp.data.success)
