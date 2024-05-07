@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { HideLoading, ShowLoading } from '../../redux/rootSlice'
 import axios from 'axios'
 // import store from '../../redux/store'
+import { serverAPIURI } from '../../utils/constants'
+
 
 const AdminProjects = () => {
     const { portfolioData } = useSelector(store => store.root)
@@ -18,7 +20,7 @@ const AdminProjects = () => {
             const tempTechnologies = technologies?.replaceAll(' ', '')?.split(',')
             values.technologies = tempTechnologies
             console.log(values)
-            const resp = await axios.post('/api/v1/portfolio/add-project', {
+            const resp = await axios.post(`${serverAPIURI}/api/v1/portfolio/add-project`, {
                 values
             })
             if (resp.data.success)
