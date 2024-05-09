@@ -31,7 +31,7 @@ const About = () => {
                 <div className='text-tertiary text-2xl'>
                     {techVerbiage}
                 </div >
-                <div className='gap-4 flex rounded-lg py-10'>
+                <div className='gap-4 flex rounded-lg sm:grid sm:grid-cols-4 py-10'>
                     {skills.map((item) => (
                         <div
                             key={item}
