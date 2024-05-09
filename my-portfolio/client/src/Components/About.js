@@ -1,12 +1,13 @@
 import React from 'react'
 import SectionTitle from './SectionTitle'
 import Button from './Button'
+import { progLanguages } from '../utils/prog-lang'
 
 const About = () => {
     const { portfolioData } = useSelector(state => state.root)
-    const {abouts} = portfolioData
-    const {url, description_first, techVerbiage, skills} = abouts
-    console.log(abouts)
+    const { abouts } = portfolioData
+    const { url, description_first, techVerbiage, skills } = abouts
+    console.log(skills)
     return (
         <div>
             <SectionTitle title={"About Me"} />
@@ -23,9 +24,14 @@ const About = () => {
                     </div>
                     <div className='gap-4 flex rounded-lg py-10'>
                         {console.log(skills)}
-                        {skills.map((item) => 
-                            <Button title={item} margin={'mx-4'} padding={'px-4'} height={"h-12"} color={""} type={"rounded-lg"} border={"border-2"} others={"border-tertiary flex"} />
-                        )}
+                        {skills = ["Javascript"]}
+                        {skills.map((item) => (
+                            <div key={item} className="flex items-center">
+                                {console.log(item)}
+                                <img src={progLanguages[item]} alt={item} className="w-10 h-10 mr-2" />
+                            </div>
+                        ))}
+
                     </div>
                 </div>
             </div>
