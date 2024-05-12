@@ -7,7 +7,7 @@ const About = () => {
     const { portfolioData } = useSelector(state => state.root)
     const { abouts } = portfolioData
     const { url, description_first, techVerbiage, skills } = abouts
-    console.log(skills)
+    // console.log(skills)
     return (
         <div>
             <SectionTitle title={"About Me"} />

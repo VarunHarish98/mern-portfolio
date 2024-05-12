@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import { useSelector } from 'react-redux'
+import { clickStreamEvent } from '../utils/click-stream'
 
 export const Experience = () => {
   const { portfolioData } = useSelector(state => state.root)
   const { exp } = portfolioData
   // const { url, description_first, description_last, techVerbiage, skills } = exp
   const [selectedItem, setSelectedItem] = useState(0);
-  const handleClick = (index) => {
+  const handleClick = (index, experience) => {
     setSelectedItem(index)
+    clickStreamEvent(`${experience}_Experience`, "Click", `${experience}_Experience`)
   }
 
   return (
@@ -20,8 +22,8 @@ export const Experience = () => {
         <div className='flex flex-col w-1/3 border-l-1 border-tertiary gap-5 sm:flex-row sm:overflow-auto'>
           {exp.map((exper, index) => (
             <div className='cursor-pointer'>
-              {console.log(exper)}
-              <h1 key={exper.id} onClick={() => handleClick(index)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[10vh] w-[20vh] text-xl sm:text-lg`}>{exper.period}</h1>
+              {/* {console.log(exper)} */}
+              <h1 key={exper.id} onClick={() => handleClick(index, exper.period)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[10vh] w-[20vh] text-xl sm:text-lg`}>{exper.period}</h1>
             </div>
           ))}
         </div>

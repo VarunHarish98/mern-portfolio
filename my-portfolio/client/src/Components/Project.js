@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAdn, faArrowUpRightFromSquare } from '@fortawesome/free-brands-svg-icons'
+import ReactGA from "react-ga4";
 import { faAddressBook, faArrowAltCircleRight, faSquare } from '@fortawesome/free-regular-svg-icons'
+import { clickStreamEvent } from '../utils/click-stream';
 
 const Project = () => {
   const { portfolioData } = useSelector(state => state.root)
   const { project } = portfolioData
   const [selectedItem, setSelectedItem] = useState(0);
-  const handleClick = (index) => {
+  const handleClick = (index, project) => {
     setSelectedItem(index)
+    clickStreamEvent(`${project}_Project`, "Click", `${project}_Project`)
   }
   return (
     <div>
@@ -21,7 +23,7 @@ const Project = () => {
         <div className='flex flex-col border-l-1 border-tertiary gap-5 sm:flex-row sm:overflow-auto sm:scrollbar-hide'>
           {project.map((exp, index) => (
             <div className='cursor-pointer'>
-              <h1 key={exp.id} onClick={() => handleClick(index)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[15vh] w-[25vh] text-xl sm:text-lg`}>{exp.title}</h1>
+              <h1 key={exp.id} onClick={() => handleClick(index, exp.title)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[15vh] w-[25vh] text-xl sm:text-lg`}>{exp.title}</h1>
             </div>
           ))}
         </div>

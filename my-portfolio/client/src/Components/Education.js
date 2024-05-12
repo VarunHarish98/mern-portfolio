@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import { useSelector } from 'react-redux';
+import { clickStreamEvent } from '../utils/click-stream';
 
 const Education = () => {
   const { portfolioData } = useSelector(state => state.root)
   const { education } = portfolioData
   const [selectedItem, setSelectedItem] = useState(0);
-  const handleClick = (index) => {
+  const handleClick = (index, degree) => {
     setSelectedItem(index)
+    clickStreamEvent(`${degree}_degree`, "Click", `${degree}_degree`)
   }
   return (
     <div>
@@ -18,7 +20,7 @@ const Education = () => {
         <div className='flex flex-col border-l-1 border-tertiary gap-5 sm:flex-row sm:overflow-auto sm:scrollbar-hide sm:gap-7'>
           {education.map((exp, index) => (
             <div className='cursor-pointer'>
-              <h1 key={exp.id} onClick={() => handleClick(index)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[15vh] w-[20vh] text-xl sm:text-lg`}>{exp.degree}</h1>
+              <h1 key={exp.id} onClick={() => handleClick(index, exp.degree)} className={`${selectedItem === index ? 'text-tertiary border-tertiary -ml-1 bg-[#165232b5] p-2 xl:border-l-4' : 'text-white'}  px-5 sm:px-2 sm:w-[15vh] w-[20vh] text-xl sm:text-lg`}>{exp.degree}</h1>
             </div>
           ))}
         </div>
