@@ -9,10 +9,13 @@ import Contact from '../../Components/Contact'
 import Footer from '../../Components/Footer'
 import { Sidebar } from '../../Components/Sidebar'
 import { useSelector } from 'react-redux'
+import ReactGA from "react-ga4";
+
 
 const Home = () => {
   const { portfolioData } = useSelector(state => state.root)
-  
+  ReactGA.send({ hitType: "pageview", page: "/", title: "Home Screen" });
+
   return (
     <div>
       <Header />

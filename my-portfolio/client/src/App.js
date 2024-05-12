@@ -7,6 +7,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { HideLoading, SetPortfolioData, ShowLoading } from "./redux/rootSlice";
 import Admin from "./pages/Admin";
 import { serverAPIURI } from "./utils/constants";
+import ReactGA from "react-ga4";
+const GA_MEASUREMENT_ID = "G-FTPJYC0Q7H"
+ReactGA.initialize(GA_MEASUREMENT_ID);
+
 
 export default function App() {
   const { loading, portfolioData } = useSelector(state => state.root)

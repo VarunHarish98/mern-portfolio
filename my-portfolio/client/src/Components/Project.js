@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import SectionTitle from './SectionTitle'
 import { useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAdn, faArrowUpRightFromSquare } from '@fortawesome/free-brands-svg-icons'
+import { faAddressBook, faArrowAltCircleRight, faSquare } from '@fortawesome/free-regular-svg-icons'
 
 const Project = () => {
   const { portfolioData } = useSelector(state => state.root)
@@ -23,12 +26,15 @@ const Project = () => {
           ))}
         </div>
         <div className='flex sm:flex-col px-20 sm:px-2'>
-          <div className='w-1/3 sm:w-full justify-center'>
-            <img className={"border-2 rounded-lg sm:h-52 sm:w-72 h-60 w-72"} src={`${project[selectedItem].image}`} alt={project[selectedItem].title} />
+          <div className='w-1/3 sm:w-full justify-center relative'>
+            <img className="border-2 rounded-lg sm:h-52 sm:w-72 h-60 w-72 relative" src={project[selectedItem].image} alt={project[selectedItem].title} />
+            {/* <div className='absolute bottom-0 left-0 w-full h-10 bg-black opacity-50 flex justify-end gap-3 items-center text-white'><FontAwesomeIcon icon={faAdn} /></div> */}
           </div>
+
           <div className='text-white w-full px-10 sm:w-full sm:px-2 sm:py-2'>
             <div className='sm:w-full'>
               <span className='text-4xl sm:text-xl text-orange-500 font-semibold'>{project[selectedItem].title}</span>
+              <span className='top-10'><FontAwesomeIcon color='white' icon={faArrowAltCircleRight}/></span>
               {project[selectedItem].technologies.length > 0 && <p className='sm:text-lg my-2'><em>Technologies Used - {project[selectedItem].technologies.map((item) => `${item} `)}</em></p>}
               {project[selectedItem].link && <p className='sm:text-lg my-2'><em>Link - {project[selectedItem].link}</em></p>}
               <p className='my-2'>{project[selectedItem].description}</p>
