@@ -3,13 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { useSelector } from 'react-redux'
+import { clickStreamEvent } from '../utils/click-stream'
 
 export const Sidebar = () => {
-    const { portfolioData} = useSelector(state => state.root)
-    const {others} = portfolioData
-    const {linkedinUrl, githubUrl, email} = others
+    const { portfolioData } = useSelector(state => state.root)
+    const { others } = portfolioData
+    const { linkedinUrl, githubUrl, email } = others
     const handleIconClick = (icon) => {
         const link = icon === 'Github' ? githubUrl : (icon === 'Email' ? email : linkedinUrl);
+        clickStreamEvent(`${icon}_Sidebar`, 'Click', `${icon}_Sidebar`)
         window.open(link, '_blank');
     }
     return (

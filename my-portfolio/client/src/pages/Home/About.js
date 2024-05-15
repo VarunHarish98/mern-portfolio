@@ -1,10 +1,8 @@
 import React from 'react'
 import SectionTitle from '../../Components/SectionTitle'
-import Button from '../../Components/Button'
 import { useSelector } from 'react-redux'
 import { progLanguages } from '../../utils/prog-lang'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-let Tooltip = require('rc-tooltip');
 
 
 const About = () => {
@@ -14,19 +12,17 @@ const About = () => {
     return (
         <div>
             <SectionTitle title={"About Me"} />
-            <div className='flex w-full items-center sm:flex-col '>
-                <div className='h-[70vh] sm:w-full w-1/2'>
-                    <dotlottie-player src={`${url}`} background="transparent" loop autoplay></dotlottie-player>
+            <div className='flex px-5 mx-5 gap-10 items-center sm:flex-row sm:items-start'>
+                <div className='h-[70vh] sm:w-full w-full flex justify-center items-center'>
+                    {/* <dotlottie-player src={`${url}`} background="transparent" loop autoplay></dotlottie-player> */}
+                    <img className='border-2 rounded-3xl max-w-full max-h-full' src={`${url}`} alt='About'></img>
                 </div>
-                <div className='flex flex-col gap-5 sm:w-full w-1/2 text-white'>
-                    <p>
-                        {description_first}
-                    </p>
-                    <p>
-                        {description_last}
-                    </p>
+                <div className='flex flex-col gap-5 sm:w-full w-full text-white'>
+                    <p>{description_first}</p>
+                    <p>{description_last}</p>
                 </div>
             </div>
+
             <div className='py-5'>
                 <div className='text-tertiary text-2xl'>
                     {techVerbiage}
